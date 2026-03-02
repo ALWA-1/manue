@@ -1,0 +1,778 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #e21b22;
+    --primary-dark: #b9151b;
+    --accent-color: #ffc107;
+    --text-dark: #2d3436;
+    --text-light: #ffffff;
+    --bg-main: #fdfcf9;
+    --bg-white: #ffffff;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 15px 35px rgba(226, 27, 34, 0.15);
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Logo Styles */
+.header {
+    background: var(--bg-white);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    max-height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Bebas Neue', cursive;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
+    margin: 0;
+    line-height: 1;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    width: 30px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: var(--bg-white);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    text-align: center;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 15px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+        url('./media/Gemini_Generated_Image_4k2tbo4k2tbo4k2t.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--text-light);
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #fdfdfd;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* أزرار الـ Hero Section */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--primary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: 0 8px 25px rgba(226, 27, 34, 0.4);
+}
+
+/* زر (تواصل مع أقرب فرع) الشفاف المفرغ */
+.cta-button.outline {
+    background: transparent;
+    border-color: var(--text-light);
+    color: var(--text-light);
+}
+
+.cta-button.outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: none;
+}
+
+/* Sections Header */
+.section-header { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+
+.section-title { 
+    display: inline-block; 
+    position: relative; 
+    font-size: 2.8rem; 
+    font-weight: 900; 
+    color: var(--text-dark); 
+    padding-bottom: 15px; 
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Offers Section */
+.offers-section {
+    padding: 80px 0;
+    background-color: var(--bg-main);
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+}
+
+.offer-card {
+    flex: 0 0 calc(33.333% - 14px);
+    background: var(--primary-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(226, 27, 34, 0.2);
+    position: relative;
+    border: 3px solid #ff4d4d;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: var(--primary-dark);
+}
+
+.offer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.offer-price {
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: var(--text-dark);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    font-family: 'Bebas Neue', cursive;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid #fff;
+    z-index: 2;
+}
+
+.offer-details {
+    padding: 25px 15px 15px;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.offer-details h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.offer-details p {
+    color: #ffe5e5;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+/* إضافات السحب واللمس لسكشن العروض */
+/* إخفاء الكروت الخارجة عن الشاشة */
+.carousel-container {
+    width: 100%;
+    overflow: hidden; 
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    cursor: grab;
+    overflow: visible; /* مهم لعمل الجافاسكريبت بشكل صحيح */
+}
+
+.carousel-track.grabbing {
+    cursor: grabbing !important;
+}
+
+.offer-card {
+    flex: 0 0 calc(33.333% - 14px); /* الحفاظ على حجم الكارت */
+    user-select: none; /* منع تحديد النصوص */
+    -webkit-user-drag: none; /* منع السحب الافتراضي للمتصفح */
+}
+
+.offer-image img {
+    pointer-events: none; /* منع المتصفح من محاولة سحب الصورة كملف */
+}
+/* Menu Section */
+.menu-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(253, 248, 245, 0.88), rgba(253, 248, 245, 0.88)),
+        url('./media/لقطة\ شاشة\ 2026-03-02\ 041455.png') center/cover fixed;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+}
+
+.card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.menu-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.card-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Sides & Drinks Section */
+.sides-section { padding: 80px 0; background: var(--bg-main); }
+.sides-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 50px; }
+.sides-column { background: var(--bg-white); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #eee; }
+
+.horizontal-menu-item {
+    display: flex; 
+    gap: 20px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    background: var(--bg-white); 
+    border-radius: 15px; 
+    box-shadow: var(--shadow); 
+    border: 1px solid #f0f0f0; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    align-items: center; 
+    cursor: pointer;
+}
+
+.horizontal-menu-item:hover { 
+    transform: translateY(-8px); 
+    box-shadow: var(--shadow-hover); 
+    border-color: var(--primary-color); 
+}
+
+.item-image { 
+    width: 120px; 
+    height: 120px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    flex-shrink: 0; 
+    position: relative;
+}
+
+.item-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+}
+
+.horizontal-menu-item:hover .item-image img { 
+    transform: scale(1.1); 
+}
+
+.item-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.item-info h3 { color: var(--text-dark); font-size: 1.4rem; margin-bottom: 5px; font-weight: 800; }
+.item-info p { color: #555; font-size: 0.95rem; line-height: 1.5; margin-bottom: 10px; }
+.item-price { font-weight: 800; font-size: 1.2rem; color: var(--primary-color); }
+
+/* ========================================= */
+/* تصميم النافذة المنبثقة (Branches Modal) */
+/* ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-main);
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border: 2px solid var(--primary-color);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-modal:hover { 
+    color: var(--primary-color); 
+}
+
+.modal-title {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.modal-divider {
+    width: 80px; 
+    height: 5px; 
+    background: var(--primary-color); 
+    margin: 0 auto 30px; 
+    border-radius: 5px;
+}
+
+/* كروت الفروع بداخل النافذة */
+.branch-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.branch-card:hover {
+    transform: translateY(-3px);
+    border-color: #ffdada;
+}
+
+.branch-info h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.branch-info p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* أزرار التواصل بداخل كل فرع */
+.branch-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.map-btn { background: #f0f0f0; color: #333; }
+.map-btn:hover { background: #e0e0e0; transform: translateY(-2px); }
+
+.wa-btn { background: #25D366; color: white; }
+.wa-btn:hover { background: #128C7E; box-shadow: 0 4px 10px rgba(37,211,102,0.3); transform: translateY(-2px); }
+
+.call-btn { background: var(--primary-color); color: white; }
+.call-btn:hover { background: var(--primary-dark); box-shadow: 0 4px 10px rgba(226,27,34,0.3); transform: translateY(-2px); }
+
+
+/* ========================================= */
+/* تحديث تصميم الفوتر (Footer) ليكون 3 أعمدة */
+/* ========================================= */
+.footer {
+    background: var(--primary-dark);
+    color: var(--text-light);
+    padding: 70px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: right; /* محاذاة النص لليمين لتناسب اللغة العربية */
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.footer-section h4 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* خط صغير مزخرف تحت عناوين الفوتر */
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--text-light);
+    border-radius: 3px;
+}
+
+/* تنسيق قائمة الفروع */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ffdada;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(-5px); /* حركة خفيفة لليسار عند التمرير */
+}
+
+/* تنسيق رقم الهاتف */
+.phone-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: var(--accent-color);
+}
+
+.phone-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 20px; /* مسافة بين الرقم وزر الواتساب */
+}
+
+/* زر الواتساب الاحترافي في الفوتر */
+.wa-footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.wa-footer-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    background: #128C7E;
+}
+
+/* خط فاصل سفلي */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    color: #ffdada;
+    font-size: 0.9rem;
+}
+
+/* تظبيط الفوتر للموبايل */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center; /* توسيط العناصر في الموبايل */
+    }
+    .footer-section h4::after {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%); /* توسيط الخط المزخرف */
+    }
+    .footer-links a:hover {
+        transform: translateY(-2px); /* تعديل اتجاه الحركة في الموبايل */
+    }
+}
+
+/* ========================================= */
+/* Responsive & Mobile Optimizations */
+/* ========================================= */
+@media (max-width: 992px) {
+    .offer-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .sides-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header { padding: 8px 0; }
+    .logo-image { max-height: 45px; }
+    .logo-text { font-size: 1.8rem; }
+    .mobile-menu { top: 65px; }
+    .nav { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .offer-card { flex: 0 0 100%; }
+    .menu-section { background-attachment: scroll; }
+    
+    .hero {
+        height: 60vh; 
+        min-height: 400px; 
+        background-position: center center; 
+    }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { font-size: 1.2rem; margin-bottom: 25px; }
+    .cta-button { padding: 12px 30px; font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .hero-title { font-size: 2.2rem; }
+    
+    /* جعل أزرار التواصل تحت بعض في الموبايل */
+    .action-btn { flex: 100%; }
+}

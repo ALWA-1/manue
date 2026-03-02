@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BreshtA Pizza | بريشتـــا بيتزا</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="./media/Option2.jpg" alt="BreshtA Pizza Logo" class="logo-image">
+                <h1 class="logo-text">BreshtA Pizza</h1>
+            </div>
+            <nav class="nav">
+                <a href="#offers" class="nav-link">أفضل العروض</a>
+                <a href="#signature" class="nav-link">المنيو</a>
+                <a href="#" onclick="openBranchesModal(event)" class="nav-link">فروعنا</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#offers" class="mobile-nav-link" onclick="toggleMobileMenu()">أفضل العروض</a>
+        <a href="#signature" class="mobile-nav-link" onclick="toggleMobileMenu()">المنيو</a>
+        <a href="#" class="mobile-nav-link" onclick="openBranchesModal(event); toggleMobileMenu()">فروعنا</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">الطعم الأصلي للبيتزا</h2>
+            <p class="hero-subtitle">مكونات طازجة.. عجينة هشة.. وعروض ما بتخلص!</p>
+            <div class="hero-buttons">
+                <a href="#offers" class="cta-button">اطلب عرضك الآن</a>
+                <button onclick="openBranchesModal(event)" class="cta-button outline">تواصل مع أقرب فرع</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="offers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">أفضل العـــروض</h2>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track" id="offersTrack"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signature" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">البيتزا المميزة</h2>
+            </div>
+            <div class="menu-grid" id="pizzaGrid"></div>
+        </div>
+    </section>
+
+    <section id="sides" class="sides-section">
+        <div class="container">
+            <div class="sides-wrapper">
+                <div class="sides-column" data-aos="zoom-in">
+                    <h2 class="section-title">الإضافات والمقبلات</h2>
+                    <div id="sidesContainer"></div>
+                </div>
+
+                <div class="sides-column drinks-column" data-aos="zoom-in" data-aos-delay="200">
+                    <h2 class="section-title">المشروبات</h2>
+                    <div id="drinksContainer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                
+                <div class="footer-section">
+                    <h3>BreshtA Pizza</h3>
+                    <p>منذ عام 2000، نقدم لكم أصل البيتزا المخبوزة بشغف لتستمتع بالطعم الحقيقي.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>فروعنــــا</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://maps.app.goo.gl/r3wq3jcV6dvmokA16" target="_blank">
+                                📍 طبربور أبو عليا - شارع النهضة
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.app.goo.gl/r3wq3jcV6dvmokA16" target="_blank">
+                                📍 شارع المدينة المنورة - بجانب حلويات نفيسة
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.app.goo.gl/r3wq3jcV6dvmokA16" target="_blank">
+                                📍 المقابلين - شارع الإذاعة مقابل مول الشعب
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>تواصل معنا للطلب</h4>
+                    <p class="phone-number">📞 <a href="tel:0796468272" class="phone-link" dir="ltr">079 646 8272</a></p>
+                    <a href="https://api.whatsapp.com/send/?phone=962796468272" target="_blank" class="wa-footer-btn">
+                        💬 تواصل عبر واتساب
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة © 2026 BreshtA Pizza</p>
+            </div>
+        </div>
+    </footer>
+
+<div id="branchesModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeBranchesModal()">×</button>
+            <h2 class="modal-title">فروعنا وطرق التواصل</h2>
+            <div class="modal-divider"></div>
+            <div id="branchesContainer" class="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
