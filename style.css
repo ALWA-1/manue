@@ -140,7 +140,7 @@ html {
     height: 80vh;
     min-height: 500px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-        url('./media/Gemini_Generated_Image_4k2tbo4k2tbo4k2t.png') center/cover;
+        url('./media/fdf.png') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -775,4 +775,5 @@ html {
     
     /* جعل أزرار التواصل تحت بعض في الموبايل */
     .action-btn { flex: 100%; }
+
 }
