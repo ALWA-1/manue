@@ -26,12 +26,8 @@ async function loadDynamicData() {
         const settings = settingsRes.data || {};
         const globalPhone = settings.phone || '0796468272';
         const globalWa = settings.whatsapp ? `https://api.whatsapp.com/send/?phone=${settings.whatsapp}&text=${encodeURIComponent(settings.whatsapp_message || '')}` : '#';
-        // تجهيز أرقام التواصل من الإعدادات
-        const settings = settingsRes.data || {};
-        const globalPhone = settings.phone || '0796468272';
-        const globalWa = settings.whatsapp ? `https://api.whatsapp.com/send/?phone=${settings.whatsapp}&text=${encodeURIComponent(settings.whatsapp_message || '')}` : '#';
 
-        // -------- الكود الجديد لتغيير خلفية الغلاف (Hero) --------
+        // -------- الكود لتغيير خلفية الغلاف (Hero) --------
         if (settings.hero_image) {
             const heroSection = document.querySelector('.hero');
             if (heroSection) {
@@ -42,9 +38,6 @@ async function loadDynamicData() {
             }
         }
         // ---------------------------------------------------------
-
-        // تمرير البيانات للطباعة
-        renderMenu({
 
         // تمرير البيانات للطباعة
         renderMenu({
@@ -353,6 +346,4 @@ window.addEventListener('scroll', function () {
 });
 
 // تشغيل جلب البيانات عند تحميل الصفحة
-
 document.addEventListener('DOMContentLoaded', loadDynamicData);
-
