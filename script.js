@@ -200,8 +200,10 @@ function initOffersCarousel() {
     let autoPlayInterval;
     let isDragging = false;
     let startX = 0;
+    let startY = 0; // لحفظ نقطة البداية العمودية
     let currentX = 0;
     let isAnimating = false;
+    let isScrolling; // للتفريق بين السحب (يمين/شمال) والسكرول (فوق/تحت)
 
     function getCardWidth() {
         const gap = 20; 
@@ -234,16 +236,35 @@ function initOffersCarousel() {
     function dragStart(e) {
         if (isAnimating) return;
         isDragging = true;
+        isScrolling = undefined; // تصفير حالة السكرول
         stop();
+        
         startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        startY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY; 
+        
         track.style.transition = 'none';
         track.classList.add('grabbing');
     }
 
     function dragMove(e) {
         if (!isDragging) return;
-        if(e.cancelable) e.preventDefault(); 
+        
         const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const y = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+
+        if (typeof isScrolling === 'undefined') {
+            isScrolling = Math.abs(y - startY) > Math.abs(x - startX);
+        }
+
+        if (isScrolling) {
+            isDragging = false;
+            track.classList.remove('grabbing');
+            play();
+            return; 
+        }
+
+        if(e.cancelable) e.preventDefault(); 
+        
         currentX = x - startX;
         track.style.transform = `translateX(${currentX}px)`;
     }
@@ -292,6 +313,7 @@ function initOffersCarousel() {
     track.addEventListener('mousemove', dragMove);
     track.addEventListener('mouseup', dragEnd);
     track.addEventListener('mouseleave', () => { if (isDragging) dragEnd(); });
+    
     track.addEventListener('touchstart', dragStart, { passive: true });
     track.addEventListener('touchmove', dragMove, { passive: false });
     track.addEventListener('touchend', dragEnd);
@@ -312,4 +334,5 @@ window.addEventListener('scroll', function () {
 });
 
 // تشغيل جلب البيانات عند تحميل الصفحة
+
 document.addEventListener('DOMContentLoaded', loadDynamicData);
